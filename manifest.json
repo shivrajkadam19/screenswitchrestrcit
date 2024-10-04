@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "HackerRank Restriction Extension",
+    "name": "danger",
     "version": "1.0",
-    "description": "Restrict browsing to only certain allowed sites like HackerRank and Google OAuth during tests.",
+    "description": "Restrict browsing to only certain allowed sites",
     "permissions": [
       "tabs",
       "webNavigation",        
