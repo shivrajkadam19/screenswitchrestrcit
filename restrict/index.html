@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caught You!</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .message {
+      background-color: #ff6666;
+      color: white;
+      padding: 50px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      animation: slideIn 1s ease-out;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #ff6666;
+      background-color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="message">
+      <h1>Oops! Caught you trying to cheat!</h1>
+      <p>Focus back on the exam or you'll lose points...</p>
+      <button onclick="goBack()" disabled>I won't do it again!</button>
+    </div>
+  </div>
+
+  <script>
+    let lostFocus = false;
+
+    window.onblur = () => {
+      lostFocus = true;
+    };
+
+    window.onfocus = () => {
+      if (lostFocus) {
+        // Show the "Caught You" message when the student returns to the tab
+        alert("Hey! Focus back on the exam!");
+        window.location.reload(); // Optional: reloads the page if needed
+      }
+    };
+
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+</html>
